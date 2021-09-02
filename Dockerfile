@@ -17,6 +17,7 @@ COPY --from=build /usr/sbin/nginx /usr/sbin/nginx
 ADD ./nginx.conf /opt/nginx.conf
 ADD ./entrypoint.sh /entrypoint.sh
 ADD ./php-fpm.conf /opt/php-fpm.conf
+ADD ./www.conf /opt/www.conf
 
 RUN adduser --disabled-password --home /home/container container
 USER container
