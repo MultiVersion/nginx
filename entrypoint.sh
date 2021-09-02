@@ -1,11 +1,16 @@
 #! /bin/bash
+cd /home/container
 echo "MultiVersion 21.09 | github.com/MultiVersion"
 
-if [[ ! -f nginx.conf ]]; then
+if [[ ! -f /home/container/nginx.conf ]]; then
   cp /opt/nginx.conf /home/container/nginx.conf
 fi
 
-if [[ ! -f php-fpm.conf ]]; then
+if [[ ! -f /home/container/php-fpm.conf ]]; then
+  cp /opt/php-fpm.conf /home/container/php-fpm.conf
+fi
+
+if [[ ! -f /home/container/www.conf ]]; then
   cp /opt/php-fpm.conf /home/container/php-fpm.conf
 fi
 
