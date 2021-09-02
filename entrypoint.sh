@@ -11,7 +11,7 @@ if [[ ! -f /home/container/php-fpm.conf ]]; then
 fi
 
 if [[ ! -f /home/container/www.conf ]]; then
-  cp /opt/php-fpm.conf /home/container/php-fpm.conf
+  cp /opt/www.conf /home/container/www.conf
 fi
 
 if [[ ! -d /home/container/logs ]]; then
