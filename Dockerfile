@@ -11,13 +11,11 @@ RUN \
   make install
 
 FROM multiversiond/php
-LABEL org.opencontainers.image.source="https://github.com/MultiVersion/php" org.opencontainers.image.source="https://multiversion.dviih.technology/" org.opencontainers.image.version="21.09" org.opencontainers.image.revision="LTS" org.opencontainers.image.authors="Dviih" org.opencontainers.image.licenses="unlicense.org"
+LABEL org.opencontainers.image.source="https://github.com/MultiVersion/nginx" org.opencontainers.image.source="https://multiversion.dviih.technology/" org.opencontainers.image.version="21.09" org.opencontainers.image.revision="LTS" org.opencontainers.image.authors="Dviih" org.opencontainers.image.licenses="unlicense.org"
 
 COPY --from=build /usr/sbin/nginx /usr/sbin/nginx
 ADD ./nginx.conf /opt/nginx.conf
 ADD ./entrypoint.sh /entrypoint.sh
-ADD ./php-fpm.conf /opt/php-fpm.conf
-ADD ./www.conf /opt/www.conf
 
 RUN adduser --disabled-password --home /home/container container
 USER container
