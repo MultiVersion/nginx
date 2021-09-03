@@ -10,8 +10,12 @@ if [[ ! -f /home/container/php-fpm.conf ]]; then
   cp /opt/php-fpm.conf /home/container/php-fpm.conf
 fi
 
-if [[ ! -f /home/container/www.conf ]]; then
-  cp /opt/www.conf /home/container/www.conf
+if [[ ! -d /home/container/fpm/ ]]; then
+    mkdir -p /home/container/fpm/
+fi
+
+if [[ ! -f /home/container/fpm/www.conf ]]; then
+  cp /opt/www.conf /home/container/fpm/www.conf
 fi
 
 if [[ ! -d /home/container/logs ]]; then
