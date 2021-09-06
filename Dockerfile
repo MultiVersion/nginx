@@ -3,9 +3,9 @@ FROM ubuntu:focal AS build
 RUN \
   apt-get update && \
   apt-get install -y libssl-dev wget liblz-dev libpcre3 zlib1g zlib1g-dev gcc g++ make libpcre3 libpcre3-dev && \
-  wget https://nginx.org/download/nginx-1.21.0.tar.gz && \
-  tar -xzvf nginx-1.21.0.tar.gz && \
-  cd nginx-1.21.0 && \
+  wget https://nginx.org/download/nginx-1.21.2.tar.gz && \
+  tar -xzvf nginx-1.21.2.tar.gz && \
+  cd nginx-1.21.2 && \
   ./configure --prefix=/home/container --modules-path=/home/container/modules --with-http_ssl_module --with-http_v2_module --with-http_mp4_module --with-debug --conf-path=/home/container/nginx.conf --error-log-path=/home/container/error.log --pid-path=/home/container/nginx.pid --user=container --sbin-path=/usr/sbin/nginx && \
   make && \
   make install
