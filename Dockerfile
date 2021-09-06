@@ -2,9 +2,9 @@ FROM alpine AS build
 
 RUN \
   apk add --update openssl-dev wget zlib zlib-dev gcc g++ make && \
-  wget https://nginx.org/download/nginx-1.21.0.tar.gz && \
-  tar -xzvf nginx-1.21.0.tar.gz && \
-  cd nginx-1.21.0 && \
+  wget https://nginx.org/download/nginx-1.21.2.tar.gz && \
+  tar -xzvf nginx-1.21.2.tar.gz && \
+  cd nginx-1.21.2 && \
   ./configure --prefix=/home/container --modules-path=/home/container/modules --with-http_ssl_module --with-http_v2_module --with-http_mp4_module --with-debug --conf-path=/home/container/nginx.conf --error-log-path=/home/container/error.log --pid-path=/home/container/nginx.pid --user=container --sbin-path=/usr/sbin/nginx --without-pcre --without-http_rewrite_module && \
   make && \
   make install
